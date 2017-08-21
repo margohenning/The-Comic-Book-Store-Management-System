@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6A18D249-0F9D-447E-9541-92174E696279}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ComicBook</RootNamespace>
+    <AssemblyName>ComicBook</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.8.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa, Version=5.5.8.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComicDataSet.cs">
+      <DependentUpon>ComicDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ComicDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComicDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataClasses\Author.cs" />
+    <Compile Include="DataClasses\Book.cs" />
+    <Compile Include="DataClasses\BookInfo.cs" />
+    <Compile Include="DataClasses\Customer.cs" />
+    <Compile Include="DataClasses\Employee.cs" />
+    <Compile Include="DataClasses\Publisher.cs" />
+    <Compile Include="DataClasses\Sale.cs" />
+    <Compile Include="DataClasses\SaleBasket.cs" />
+    <Compile Include="DataClasses\SaleVW.cs" />
+    <Compile Include="DataClasses\Stock.cs" />
+    <Compile Include="DataClasses\Store.cs" />
+    <Compile Include="DataClasses\Transformation.cs" />
+    <Compile Include="DBConnect.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddCustomer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\AddCustomer.Designer.cs">
+      <DependentUpon>AddCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddSale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\AddSale.Designer.cs">
+      <DependentUpon>AddSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Publishers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Publishers.Designer.cs">
+      <DependentUpon>Publishers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RemoveSale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\RemoveSale.Designer.cs">
+      <DependentUpon>RemoveSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RemoveEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\RemoveEmployee.Designer.cs">
+      <DependentUpon>RemoveEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UpdatePublishers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\UpdatePublishers.Designer.cs">
+      <DependentUpon>UpdatePublishers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UpdateAuthor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\UpdateAuthor.Designer.cs">
+      <DependentUpon>UpdateAuthor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddPublisher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\AddPublisher.Designer.cs">
+      <DependentUpon>AddPublisher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddAuthor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\AddAuthor.Designer.cs">
+      <DependentUpon>AddAuthor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\AddBook.Designer.cs">
+      <DependentUpon>AddBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Authors.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Authors.Designer.cs">
+      <DependentUpon>Authors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UpdateCustomer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\UpdateCustomer.Designer.cs">
+      <DependentUpon>UpdateCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UpdateBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\UpdateBook.Designer.cs">
+      <DependentUpon>UpdateBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UpdateEmployee .cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\UpdateEmployee .Designer.cs">
+      <DependentUpon>UpdateEmployee .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\AddEmployee.Designer.cs">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LogIn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ComicBooks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\ComicBooks.Designer.cs">
+      <DependentUpon>ComicBooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Customers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Customers.Designer.cs">
+      <DependentUpon>Customers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Employees.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Employees.Designer.cs">
+      <DependentUpon>Employees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Main.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Sales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Sales.Designer.cs">
+      <DependentUpon>Sales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ViewPublishers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\ViewPublishers.Designer.cs">
+      <DependentUpon>ViewPublishers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ViewAuthors.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\ViewAuthors.Designer.cs">
+      <DependentUpon>ViewAuthors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\AddCustomer.resx">
+      <DependentUpon>AddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\AddSale.resx">
+      <DependentUpon>AddSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Publishers.resx">
+      <DependentUpon>Publishers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\RemoveSale.resx">
+      <DependentUpon>RemoveSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\RemoveEmployee.resx">
+      <DependentUpon>RemoveEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\UpdatePublishers.resx">
+      <DependentUpon>UpdatePublishers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\UpdateAuthor.resx">
+      <DependentUpon>UpdateAuthor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\AddPublisher.resx">
+      <DependentUpon>AddPublisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\AddAuthor.resx">
+      <DependentUpon>AddAuthor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\AddBook.resx">
+      <DependentUpon>AddBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Authors.resx">
+      <DependentUpon>Authors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\UpdateCustomer.resx">
+      <DependentUpon>UpdateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\UpdateBook.resx">
+      <DependentUpon>UpdateBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\UpdateEmployee .resx">
+      <DependentUpon>UpdateEmployee .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ComicBooks.resx">
+      <DependentUpon>ComicBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Customers.resx">
+      <DependentUpon>Customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\AddEmployee.resx">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Employees.resx">
+      <DependentUpon>Employees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Sales.resx">
+      <DependentUpon>Sales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ViewPublishers.resx">
+      <DependentUpon>ViewPublishers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ViewAuthors.resx">
+      <DependentUpon>ViewAuthors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="ComicDataSet.xsc">
+      <DependentUpon>ComicDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ComicDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ComicDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ComicDataSet.xss">
+      <DependentUpon>ComicDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-mark-in-a-circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-mark-in-a-circle %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok-appproval-acceptance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\itextsharp.pdfa.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\itextsharp.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search Filled-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel-music %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel-music.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rubbish-bin.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

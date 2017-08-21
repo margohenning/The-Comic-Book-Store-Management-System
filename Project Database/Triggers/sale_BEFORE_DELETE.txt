@@ -1,0 +1,5 @@
+CREATE DEFINER=`root`@`localhost` TRIGGER `comic`.`sale_BEFORE_DELETE` BEFORE DELETE ON `sale` FOR EACH ROW
+BEGIN
+INSERT INTO timestampdeletesale (TransactionName, timestamp, customerID, employeeID)
+    VALUES('DeleteSale',SYSDATE(), OLD.id_customer, OLD.id_employee);
+END

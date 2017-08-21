@@ -1,0 +1,6 @@
+CREATE DEFINER=`root`@`localhost` TRIGGER `comic`.`book_BEFORE_INSERT` BEFORE INSERT ON `book` FOR EACH ROW
+BEGIN
+IF (NEW.status ="") THEN
+SET NEW.status = "Available";
+END IF;
+END

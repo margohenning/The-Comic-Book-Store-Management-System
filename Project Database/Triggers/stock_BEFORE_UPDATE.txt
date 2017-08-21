@@ -1,0 +1,13 @@
+CREATE DEFINER=`root`@`localhost` TRIGGER `comic`.`stock_BEFORE_UPDATE` BEFORE UPDATE ON `stock` FOR EACH ROW
+BEGIN
+IF (NEW.quantity =0) THEN
+UPDATE book 
+    SET book.status = "Sold"
+	WHERE book.id_book = NEW.id_book;  
+END IF;
+IF (NEW.quantity <> 0) THEN
+UPDATE book 
+    SET book.status = "Available"
+	WHERE book.id_book = NEW.id_book;  
+END IF;
+END

@@ -1,0 +1,9 @@
+USE comic;
+CREATE TABLE `timestampdeletesale` (
+  `TransactionName` varchar(50) NOT NULL,
+  `timestampID` int(11) NOT NULL AUTO_INCREMENT,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `customerID` int(11) NOT NULL,
+  `employeeID` int(11) NOT NULL,
+  PRIMARY KEY (`timestampID`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
